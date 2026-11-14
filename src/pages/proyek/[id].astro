@@ -1,0 +1,21 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const items = await getCollection('projects');
+  return items.map((p) => ({ params: { id: p.id }, props: { p } }));
+}
+const { p } = Astro.props;
+const { Content } = await render(p);
+---
+<Base title={`${p.data.title} · Bedzannn`} description={p.data.summary}>
+  <header class="nav"><a class="logo" href="/">← ~/bedzannn</a></header>
+  <main class="prose">
+    {p.data.draft && <p class="draft">⚠ Konten contoh — ganti dengan data asli sebelum dipublikasikan.</p>}
+    <p class="prompt">$ cat proyek/{p.id}.md</p>
+    <h1>{p.data.title}</h1>
+    <ul class="tags">{p.data.tags.map((t) => <li>{t}</li>)}</ul>
+    <Content />
+  </main>
+</Base>
