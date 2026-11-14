@@ -4,7 +4,7 @@ export const profile = {
   role: 'IT Staff · Administrasi Sekolah',
   tagline: 'Showcase pekerjaan saya mengelola website, jaringan, dan sistem IT di sekolah.',
   location: 'Makassar, Sulawesi Selatan',
-  education: 'S.T. Ilmu Komputer',
+  education: 'S.T. - Teknik Informatika',
   email: 'abduh.mf@sman17makassar.sch.id',
   github: 'https://github.com/abduhkz',
 };
